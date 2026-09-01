@@ -5,6 +5,7 @@
 **Modalidade:** Individual ou em equipe (máximo 3 componentes)
 **Formato de entrega:** Documento Markdown (`.md`), publicado no repositório GitHub de cada componente da equipe
 **Uso posterior:** Este documento servirá como especificação de entrada (harness) para geração de código via Claude Code / Open Code
+
 **GRUPO:** Paulo Vinicius Holanda Gomes, Vinicius Silva Pereira
 ---
 
