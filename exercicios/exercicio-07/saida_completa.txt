@@ -1,0 +1,125 @@
+Aluno: Vinicius Silva Pereira
+Comando executado: python3 bankers_algorithm.py
+
+======================================================================
+     SIMULAÇÃO DO ALGORITMO DO BANQUEIRO (TANENBAUM & BOS - CAP 6)    
+======================================================================
+======================================================================
+ESTADO ATUAL DO SISTEMA
+======================================================================
+Recursos Totais (E):     [10, 5, 7]
+Recursos Disponíveis (A): [3, 3, 2]
+----------------------------------------------------------------------
+Processo   | Alocado (C)     | Máximo (Max)    | Necessidade (Need)
+----------------------------------------------------------------------
+P0         | [0, 1, 0]       | [7, 5, 3]       | [7, 4, 3]      
+P1         | [2, 0, 0]       | [3, 2, 2]       | [1, 2, 2]      
+P2         | [3, 0, 2]       | [9, 0, 2]       | [6, 0, 0]      
+P3         | [2, 1, 1]       | [2, 2, 2]       | [0, 1, 1]      
+P4         | [0, 0, 2]       | [4, 3, 3]       | [4, 3, 1]      
+======================================================================
+
+[VERIFICAÇÃO DE ESTADO SEGURO]
+Vetor de Trabalho Inicial (Work/Disponível): [3, 3, 2]
+
+Passo 1: P1 pode ser atendido!
+  Necessidade [1, 2, 2] <= Disponível [3, 3, 2]
+  P1 executa e libera seus recursos alocados: [2, 0, 0]
+  Novo Vetor de Trabalho (Work): [5, 3, 2]
+
+Passo 2: P3 pode ser atendido!
+  Necessidade [0, 1, 1] <= Disponível [5, 3, 2]
+  P3 executa e libera seus recursos alocados: [2, 1, 1]
+  Novo Vetor de Trabalho (Work): [7, 4, 3]
+
+Passo 3: P0 pode ser atendido!
+  Necessidade [7, 4, 3] <= Disponível [7, 4, 3]
+  P0 executa e libera seus recursos alocados: [0, 1, 0]
+  Novo Vetor de Trabalho (Work): [7, 5, 3]
+
+Passo 4: P2 pode ser atendido!
+  Necessidade [6, 0, 0] <= Disponível [7, 5, 3]
+  P2 executa e libera seus recursos alocados: [3, 0, 2]
+  Novo Vetor de Trabalho (Work): [10, 5, 5]
+
+Passo 5: P4 pode ser atendido!
+  Necessidade [4, 3, 1] <= Disponível [10, 5, 5]
+  P4 executa e libera seus recursos alocados: [0, 0, 2]
+  Novo Vetor de Trabalho (Work): [10, 5, 7]
+
+✅ SUCESSO: O sistema está em um ESTADO SEGURO!
+   Sequência Segura de Execução: P1 -> P3 -> P0 -> P2 -> P4
+
+######################################################################
+SOLICITAÇÃO DE RECURSOS PELO PROCESSO P1: [1, 0, 2]
+######################################################################
+⚠️ TENTATIVA PROVISÓRIA: Recursos disponíveis no momento. Testando alocação...
+
+[VERIFICAÇÃO DE ESTADO SEGURO]
+Vetor de Trabalho Inicial (Work/Disponível): [2, 3, 0]
+
+Passo 1: P1 pode ser atendido!
+  Necessidade [0, 2, 0] <= Disponível [2, 3, 0]
+  P1 executa e libera seus recursos alocados: [3, 0, 2]
+  Novo Vetor de Trabalho (Work): [5, 3, 2]
+
+Passo 2: P3 pode ser atendido!
+  Necessidade [0, 1, 1] <= Disponível [5, 3, 2]
+  P3 executa e libera seus recursos alocados: [2, 1, 1]
+  Novo Vetor de Trabalho (Work): [7, 4, 3]
+
+Passo 3: P0 pode ser atendido!
+  Necessidade [7, 4, 3] <= Disponível [7, 4, 3]
+  P0 executa e libera seus recursos alocados: [0, 1, 0]
+  Novo Vetor de Trabalho (Work): [7, 5, 3]
+
+Passo 4: P2 pode ser atendido!
+  Necessidade [6, 0, 0] <= Disponível [7, 5, 3]
+  P2 executa e libera seus recursos alocados: [3, 0, 2]
+  Novo Vetor de Trabalho (Work): [10, 5, 5]
+
+Passo 5: P4 pode ser atendido!
+  Necessidade [4, 3, 1] <= Disponível [10, 5, 5]
+  P4 executa e libera seus recursos alocados: [0, 0, 2]
+  Novo Vetor de Trabalho (Work): [10, 5, 7]
+
+✅ SUCESSO: O sistema está em um ESTADO SEGURO!
+   Sequência Segura de Execução: P1 -> P3 -> P0 -> P2 -> P4
+
+✅ REQUISIÇÃO CONCEDIDA A P1!
+   O estado resultante permanece SEGURO.
+======================================================================
+ESTADO ATUAL DO SISTEMA
+======================================================================
+Recursos Totais (E):     [10, 5, 7]
+Recursos Disponíveis (A): [2, 3, 0]
+----------------------------------------------------------------------
+Processo   | Alocado (C)     | Máximo (Max)    | Necessidade (Need)
+----------------------------------------------------------------------
+P0         | [0, 1, 0]       | [7, 5, 3]       | [7, 4, 3]      
+P1         | [3, 0, 2]       | [3, 2, 2]       | [0, 2, 0]      
+P2         | [3, 0, 2]       | [9, 0, 2]       | [6, 0, 0]      
+P3         | [2, 1, 1]       | [2, 2, 2]       | [0, 1, 1]      
+P4         | [0, 0, 2]       | [4, 3, 3]       | [4, 3, 1]      
+======================================================================
+
+######################################################################
+SOLICITAÇÃO DE RECURSOS PELO PROCESSO P4: [3, 3, 0]
+######################################################################
+⏳ PROCESSO BLOQUEADO: Recursos insuficientes disponíveis no momento.
+   Solicitado: 3 > Disponível 2 para o recurso R0
+   P4 deve aguardar a liberação de recursos por outros processos.
+======================================================================
+ESTADO ATUAL DO SISTEMA
+======================================================================
+Recursos Totais (E):     [10, 5, 7]
+Recursos Disponíveis (A): [2, 3, 0]
+----------------------------------------------------------------------
+Processo   | Alocado (C)     | Máximo (Max)    | Necessidade (Need)
+----------------------------------------------------------------------
+P0         | [0, 1, 0]       | [7, 5, 3]       | [7, 4, 3]      
+P1         | [3, 0, 2]       | [3, 2, 2]       | [0, 2, 0]      
+P2         | [3, 0, 2]       | [9, 0, 2]       | [6, 0, 0]      
+P3         | [2, 1, 1]       | [2, 2, 2]       | [0, 1, 1]      
+P4         | [0, 0, 2]       | [4, 3, 3]       | [4, 3, 1]      
+======================================================================
